@@ -1,39 +1,46 @@
 import sys
 def main():
-    Shoplist=[]
-
+    f = open('/home/nobs-employee/Desktop/Project 1/Shopping_list.txt', 'r+')
+    lines = f.read()
+    clean_text = lines.replace('[','').replace(']','').replace("'","").replace(" ","").replace(",","")
+    Shoplist = list(clean_text)
+    
     def writetolist(arg_list):
-            f = open('/home/nobs-employee/Desktop/Project 1/Shopping_list.txt', 'w+')
+            f = open('/home/nobs-employee/Desktop/Project 1/Shopping_list.txt', 'r+')
+            f.read
             f.write(str(arg_list)) #str converts to string
             f.close()
             sys.exit()
-    def list():
-        add = input('Would you like to add an item to your Shopping List or View your list? Add or View?')
+
+    def currentlist():
+        add = input('Would you like to add an item to your Shopping List or View your list? Add or View? ')
         
         while add.lower() == "add":
             item = input("Enter your item to the list: ")
             Shoplist.append(item)
-            add = input("Want to add another Item to your list or View your list? Add or View?")
+            add = input("Want to add another Item to your list or View your list? Add or View? ")
         
         if add.lower() == "view":
             print("Here is your Shopping List.")
             for listitem in Shoplist:
                 print(listitem)
             View()
-
-
+        else:
+            print("Unrecognised Command")
+            unrecognised = currentlist()    
+            
     def View():
 
         view = input("Would you like to add another item or exit your list: ")
 
         if view.lower() == "add":
-            list()
+            currentlist()
         if view.lower() == "exit":
             writetolist(Shoplist)
         else:
             print("Unrecognised Command")
-            return
-    list()
+            unrecognised = View()
+    currentlist()
 
     
 
