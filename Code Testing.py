@@ -2,9 +2,11 @@ import sys
 def main():
     f = open('/home/nobs-employee/Desktop/Project 1/Shopping_list.txt', 'r+')
     lines = f.read()
-    clean_text = lines.replace('[','').replace(']','').replace("'","").replace(" ","").replace(",","")
-    Shoplist = list(clean_text)
-    
+    string_list = lines
+    regular_list= list(string_list[1:-1].replace("'","").split(","))
+    #clean_text = lines.replace('[','').replace(']','').replace("'","").replace(" ","").replace(",","")
+    Shoplist = regular_list
+
     def writetolist(arg_list):
             f = open('/home/nobs-employee/Desktop/Project 1/Shopping_list.txt', 'r+')
             f.read

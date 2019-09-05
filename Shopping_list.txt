@@ -1,1 +1,1 @@
-['k', 'c', 'v', 'c', 'h', 'milk']
+['', 'milk', 'bread', 'soup']
